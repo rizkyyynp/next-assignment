@@ -1,0 +1,24 @@
+@media (max-width: 768px) {
+    .navbar-container input:checked~header nav {
+        height: 100vh;
+        background: rgba(255, 255, 255, 0.25);
+        box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+        backdrop-filter: blur(3px);
+        border-radius: 10px;
+    }
+
+    .navbar-container input:checked~header label>div:nth-child(1) {
+        transform: rotate(45deg);
+        top: 50%;
+    }
+
+    .navbar-container input:checked~header label>div:nth-child(3) {
+        transform: rotate(-45deg);
+        top: 50%;
+    }
+
+    .navbar-container input:checked~header label>div:nth-child(2) {
+        transform: scale(0);
+        opacity: 0;
+    }
+}
