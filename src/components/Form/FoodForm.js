@@ -37,8 +37,23 @@ export default function FoodForm({ defaultFormData, isEdit }) {
         }
     };
 
+    const onDelete = async () => {
+        const urlDelete = `https://api-bootcamp.do.dibimbing.id/api/v1/delete-food/${router.query.id}`;
+        const resp = await axios.delete(urlDelete, {
+            headers: {
+                apiKey: "w05KkI9AWhKxzvPFtXotUva-",
+                "Content-Type": "application/json",
+                Authorization:
+                    "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im1pZnRhaGZhcmhhbkBnbWFpbC5jb20iLCJ1c2VySWQiOiJjYTIzZDdjYy02Njk1LTQzNGItODE2Yy03ZTlhNWMwNGMxNjQiLCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE2NjE4NzUzMjF9.wV2OECzC25qNujtyb9YHyzYIbYEV-wud3TQsYv7oB4Q",
+            },
+        });
+        if (resp.data.code === "200") {
+            router.push("/");
+        }
+    };
+
     return (
-        <div className="flex flex-col justify-center items-center mt-10">
+        <div className="flex flex-col justify-center items-center">
             <h1 className="text-3xl font-bold mb-5 text-slate-50 bg-primary p-5 rounded">{isEdit ? "Update" : "Create"} Menu</h1>
             <form className="w-full h-full bg-zinc-100 p-4 rounded-lg border-2 border-secondary" onSubmit={onSubmit}>
                 <input
@@ -69,9 +84,16 @@ export default function FoodForm({ defaultFormData, isEdit }) {
                     value={formData.ingredients}
                     onChange={(event) => setFormData({ ...formData, ingredients: event.target.value })}
                 />
-                <button type="submit" className="w-full bg-primary text-white p-3 rounded-lg hover:border-4 hover:border-secondary hover:transition-all hover:duration-300">
-                    {isEdit ? "Update Menu" : "Add New Menu"}
-                </button>
+                <div className="flex max-md:flex-col flex-row max-md:space-y-4 space-y-0 space-x-4 max-md:space-x-0">
+                    <button type="submit" className="w-full bg-primary text-white p-3 rounded-lg hover:border-4 hover:border-secondary hover:transition-all hover:duration-300">
+                        {isEdit ? "Update Menu" : "Add New Menu"}
+                    </button>
+                    {isEdit && (
+                        <button onClick={onDelete} type="button" className="w-full bg-red-600 text-white p-3 rounded-lg hover:border-4 hover:border-secondary hover:transition-all hover:duration-300">
+                            Delete Menu
+                        </button>
+                    )}
+                </div>
             </form>
         </div>
     );

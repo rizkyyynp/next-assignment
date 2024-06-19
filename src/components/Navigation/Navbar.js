@@ -40,7 +40,7 @@ export default function Navbar() {
                             Home
                         </h1>
                     </Link>
-                    <Link href="/create">
+                    <Link href="/create-food">
                         <h1
                             className={`relative inline-block ${navbarSticky ? 'text-white max-md:after:bg-primary after:bg-white max-md:text-primary' : 'text-primary after:bg-primary'} text-5.5 font-bold transition-all duration-300  max-md:mt-12.5 after:content-[''] after:absolute after:w-0 after:h-0.5 after:bottom-[-5px] after:left-1/2  after:transition-all after:duration-300 hover:after:w-full hover:after:left-0`}
                         >

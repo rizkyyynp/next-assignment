@@ -4,7 +4,9 @@ import BaseLayout from "@/layouts/BaseLayout";
 export default function CreateFood() {
     return (
         <BaseLayout>
-            <FoodForm />
+            <div className="pt-20 px-4">
+                <FoodForm />
+            </div>
         </BaseLayout>
     );
 }

@@ -19,7 +19,7 @@ export async function getServerSideProps(context) {
 export default function FoodDetails({ food }) {
     return (
         <BaseLayout>
-            <div className="flex flex-col items-center">
+            <div className="flex flex-col items-center max-md:px-4 pt-20 max-md:mb-10">
                 <FoodCard food={food} />
                 <FoodForm isEdit={true} defaultFormData={{ name: food.name, imageUrl: food.imageUrl, description: food.description, ingredients: food.ingredients.join(",") }} />
             </div>
