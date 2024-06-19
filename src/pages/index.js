@@ -20,7 +20,7 @@ export default function Home({ foods }) {
   const router = useRouter();
   return (
     <BaseLayout>
-      <div className="flex flex-wrap md:flex-col flex-row items-center justify-center bg-abstract pt-32 max-md:pt-20">
+      <div className="flex flex-wrap md:flex-col flex-row items-center justify-center bg-abstract pt-32 max-md:pt-20 pb-10">
         {foods.map((food) => (
           <FoodCard food={food} key={food.id} />
         ))}

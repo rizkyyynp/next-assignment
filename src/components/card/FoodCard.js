@@ -4,7 +4,7 @@ export default function FoodCard({ food }) {
     const router = useRouter();
 
     const handleClick = () => {
-        router.push(`/food/${food.id}`);
+        router.push(`/foods/${food.id}`);
     };
     return (
         <div className="bg-white shadow-lg rounded-lg m-2 w-64  flex flex-col cursor-pointer hover:border-2 hover:border-primary hover:transition-all hover:duration-300" onClick={handleClick}>
